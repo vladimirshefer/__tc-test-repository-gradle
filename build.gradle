@@ -1,0 +1,45 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+group 'alfa_test'
+version '1.0-SNAPSHOT'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+version = '0.0.1'
+mainClassName = 'AlfaTest.AlfaTest.MainClass'
+jar {
+    manifest {
+        attributes 'Main-Class': 'AlfaTest.AlfaTest.MainClass'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.mockito:mockito-core:4.5.1'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'junit:junit:4.13.1'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+test {
+    useJUnitPlatform()
+}
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
