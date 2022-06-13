@@ -3,6 +3,7 @@ package AlfaTest.AlfaTest.service;
 import AlfaTest.AlfaTest.client.FeignGifClient;
 
 
+import AlfaTest.AlfaTest.service.Impl.GifServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

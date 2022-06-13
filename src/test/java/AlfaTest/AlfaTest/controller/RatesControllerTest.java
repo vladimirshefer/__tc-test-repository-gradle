@@ -1,6 +1,6 @@
 package AlfaTest.AlfaTest.controller;
 
-import AlfaTest.AlfaTest.service.RatesServiceImpl;
+import AlfaTest.AlfaTest.service.Impl.RatesServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.junit.Test;

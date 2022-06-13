@@ -1,5 +1,8 @@
-package AlfaTest.AlfaTest.service;
+package AlfaTest.AlfaTest.service.Impl;
 
+import AlfaTest.AlfaTest.service.GifService;
+import AlfaTest.AlfaTest.service.MainService;
+import AlfaTest.AlfaTest.service.RatesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

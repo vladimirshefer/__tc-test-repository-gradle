@@ -1,6 +1,7 @@
-package AlfaTest.AlfaTest.service;
+package AlfaTest.AlfaTest.service.Impl;
 
 import AlfaTest.AlfaTest.client.GifClient;
+import AlfaTest.AlfaTest.service.GifService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

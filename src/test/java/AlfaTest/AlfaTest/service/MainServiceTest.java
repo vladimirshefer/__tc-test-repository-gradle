@@ -1,6 +1,9 @@
 package AlfaTest.AlfaTest.service;
 
 import AlfaTest.AlfaTest.model.Rates;
+import AlfaTest.AlfaTest.service.Impl.GifServiceImpl;
+import AlfaTest.AlfaTest.service.Impl.MainServiceImpl;
+import AlfaTest.AlfaTest.service.Impl.RatesServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

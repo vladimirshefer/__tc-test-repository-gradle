@@ -20,15 +20,11 @@ Must Have
 Nice to Have
 Сборка и запуск Docker контейнера с этим сервисом
 ```  
-Endpoints:
----  
-Получить список кодов для валют:
-```
-GET /symbols
-```
-Получить гифку:
-```
-GET /gifs?symbol={symbol}
+Swagger:
+--- 
+Swagger-UI
+```  
+localhost:8881/swagger-ui
 ```
 Запуск .jar:
 ---

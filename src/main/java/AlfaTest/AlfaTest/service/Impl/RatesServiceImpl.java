@@ -1,7 +1,8 @@
-package AlfaTest.AlfaTest.service;
+package AlfaTest.AlfaTest.service.Impl;
 
 import AlfaTest.AlfaTest.client.FeignRatesClient;
 import AlfaTest.AlfaTest.model.Rates;
+import AlfaTest.AlfaTest.service.RatesService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
