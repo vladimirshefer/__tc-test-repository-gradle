@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface FeignRatesClient extends RatesClient {
     @Override
     @GetMapping("/latest.json")
-    Rates getСurrentRates(@RequestParam("app_id") String appId);
+    Rates getCurrentRates(@RequestParam("app_id") String appId);
 
     @Override
     @GetMapping("/historical/{date}.json")

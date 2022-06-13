@@ -34,7 +34,7 @@ public class RatesControllerTest {
     public void whenReturnListOfCharCodes() throws Exception {
         Set<String> responseList = new HashSet<>();
         responseList.add("test");
-        Mockito.when(ratesService.getCharCodes())
+        Mockito.when(ratesService.getSymbols())
                 .thenReturn(responseList);
         mockMvc.perform(get("/rates/get")
                         .content(mapper.writeValueAsString(responseList))

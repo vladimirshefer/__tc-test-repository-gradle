@@ -34,24 +34,9 @@ public class MainControllerTest {
     private MainServiceImpl mainService;
 
     @Test
-    public void whenReturnRichGif() throws Exception {
-        Map<String, String> map = new HashMap<>();
-        map.put("tag", RICH_TAG);
-        ResponseEntity<Map> responseEntity = new ResponseEntity<>(map, HttpStatus.OK);
+    public void whenReturnGif() throws Exception {
+        ResponseEntity<String> responseEntity = new ResponseEntity<>("", HttpStatus.OK);
         Mockito.when(mainService.getGifByCharCode(RICH_TAG))
-                .thenReturn(responseEntity);
-        mockMvc.perform(get("/gif/TEST")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void whenReturnBrokeGif() throws Exception {
-        Map<String, String> map = new HashMap<>();
-        map.put("tag", BROKE_TAG);
-        ResponseEntity<Map> responseEntity = new ResponseEntity<>(map, HttpStatus.OK);
-        Mockito.when(mainService.getGifByCharCode(BROKE_TAG))
                 .thenReturn(responseEntity);
         mockMvc.perform(get("/gif/TEST")
                         .contentType(MediaType.APPLICATION_JSON))

@@ -32,7 +32,7 @@ public class GifServiceImplTest {
         ResponseEntity<Map> testEntity = new ResponseEntity<>(new HashMap(), HttpStatus.OK);
         Mockito.when(gifClient.getRandomGifByTag(anyString(), anyString()))
                 .thenReturn(testEntity);
-        ResponseEntity<Map> result = gifService.getGif("control_test_word");
-        assertEquals("control_test_word", result.getBody().get("tag"));
+        ResponseEntity<String> result = gifService.getGif("control_test_word");
+        assertEquals("control_test_word", result.getBody());
     }
 }

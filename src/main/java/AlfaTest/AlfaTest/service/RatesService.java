@@ -1,13 +1,13 @@
 package AlfaTest.AlfaTest.service;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.Set;
 
 public interface RatesService {
 
-    Set<String> getCharCodes();
+    Set<String> getSymbols();
 
-    double getForCharCode(String charCode);
+    BigDecimal getBySymbol(String symbol);
 
-    double getForCharCodeAndDate(String charCode,String date);
+    BigDecimal getBySymbolAndDate(String symbol, String date);
 }

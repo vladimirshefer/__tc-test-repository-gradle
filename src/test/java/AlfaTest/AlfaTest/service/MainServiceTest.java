@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,20 +32,20 @@ public class MainServiceTest {
     @Before
     public void init() {
         currentRates = new Rates();
-        Map<String, Double> currentMap = new HashMap<>();
-        currentMap.put("C1", 2.0);
-        currentMap.put("C2", 1.0);
-        currentMap.put("C3", 3.0);
+        Map<String, BigDecimal> currentMap = new HashMap<>();
+        currentMap.put("C1", new BigDecimal("2.0"));
+        currentMap.put("C2", new BigDecimal("1.0"));
+        currentMap.put("C3", new BigDecimal("3.0"));
         currentRates.setRates(currentMap);
         currentRates.setBase("BASE");
         currentRates.setTimestamp(0);
 
         prevRates = new Rates();
-        Map<String, Double> prevMap = new HashMap<>();
-        currentMap.put("P1", 2.0);
-        currentMap.put("P2", 1.0);
-        currentMap.put("P3", 3.0);
-        currentMap.put("P4", 3.0);
+        Map<String, BigDecimal> prevMap = new HashMap<>();
+        currentMap.put("P1", new BigDecimal("2.0"));
+        currentMap.put("P2", new BigDecimal("1.0"));
+        currentMap.put("P3", new BigDecimal("3.0"));
+        currentMap.put("P4", new BigDecimal("3.0"));
         prevRates.setRates(prevMap);
         prevRates.setBase("BASE");
         prevRates.setTimestamp(24);
@@ -52,7 +53,7 @@ public class MainServiceTest {
 
     @Test
     public void whenReturnGif() {
-        ResponseEntity<Map> result = mainService.getGifByCharCode("RUB");
-        Assert.assertTrue(result.getBody().size()  > 0 );
+        ResponseEntity<String> result = mainService.getGifByCharCode("RUB");
+        Assert.assertTrue(result.getBody().length() > 0);
     }
 }

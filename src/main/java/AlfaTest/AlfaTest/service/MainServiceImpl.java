@@ -3,9 +3,9 @@ package AlfaTest.AlfaTest.service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
 
 @Service
 public class MainServiceImpl implements MainService {
@@ -19,16 +19,16 @@ public class MainServiceImpl implements MainService {
         this.gifService = gifService;
     }
 
-    public ResponseEntity<Map> getGifByCharCode(String charCode) {
+    public ResponseEntity<String> getGifByCharCode(String charCode) {
         String tag = getTag(isCurrentRateMore(charCode));
         return gifService.getGif(tag);
     }
 
     private boolean isCurrentRateMore(String charCode) {
-        double currentRate = ratesService.getForCharCode(charCode);
+        BigDecimal currentRate = ratesService.getBySymbol(charCode);
         String date = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.now().minusDays(1));
-        double prevRate = ratesService.getForCharCodeAndDate(charCode, date);
-        return (currentRate - prevRate) > 0;
+        BigDecimal prevRate = ratesService.getBySymbolAndDate(charCode, date);
+        return currentRate.compareTo(prevRate) > 0;
     }
 
     private String getTag(boolean isCurrenRateMore) {

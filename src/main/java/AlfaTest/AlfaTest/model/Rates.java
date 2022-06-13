@@ -2,6 +2,7 @@ package AlfaTest.AlfaTest.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 @Data
@@ -10,5 +11,5 @@ public class Rates {
     private String license;
     private Integer timestamp;
     private String base;
-    private Map<String, Double> rates;
+    private Map<String, BigDecimal> rates;
 }

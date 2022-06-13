@@ -1,5 +1,9 @@
 package AlfaTest.AlfaTest.service;
 
-public interface MainService {
+import org.springframework.http.ResponseEntity;
 
+import java.util.Map;
+
+public interface MainService {
+    ResponseEntity<String> getGifByCharCode(String charCode);
 }

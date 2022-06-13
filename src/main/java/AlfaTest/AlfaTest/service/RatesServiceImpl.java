@@ -5,6 +5,7 @@ import AlfaTest.AlfaTest.model.Rates;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Service
@@ -20,21 +21,21 @@ public class RatesServiceImpl implements RatesService {
     }
 
     @Override
-    public Set<String> getCharCodes() {
-        Rates currentRates = feignRatesClient.getСurrentRates(apiKey);
+    public Set<String> getSymbols() {
+        Rates currentRates = feignRatesClient.getCurrentRates(apiKey);
         Set<String> codes = currentRates.getRates().keySet();
         return codes;
     }
 
     @Override
-    public double getForCharCode(String charCode) {
-        Rates currentRates = feignRatesClient.getСurrentRates(apiKey);
-        return currentRates.getRates().get(charCode);
+    public BigDecimal getBySymbol(String symbol) {
+        Rates currentRates = feignRatesClient.getCurrentRates(apiKey);
+        return currentRates.getRates().get(symbol);
     }
 
     @Override
-    public double getForCharCodeAndDate(String charCode, String date) {
+    public BigDecimal getBySymbolAndDate(String symbol, String date) {
         Rates prevRates = feignRatesClient.getPrevRates(apiKey, date);
-        return prevRates.getRates().get(charCode);
+        return prevRates.getRates().get(symbol);
     }
 }

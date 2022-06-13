@@ -2,6 +2,7 @@ package AlfaTest.AlfaTest.service;
 
 import AlfaTest.AlfaTest.client.GifClient;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +19,17 @@ public class GifServiceImpl implements GifService {
     }
 
     @Override
-    public ResponseEntity<Map> getGif(String tag) {
-        ResponseEntity<Map> result = gifClient.getRandomGifByTag(apiKey, tag);
-        result.getBody().put("tag", tag);
-        return gifClient.getRandomGifByTag(this.apiKey, tag);
+    public ResponseEntity<String> getGif(String tag) {
+        ResponseEntity<Map> json = gifClient.getRandomGifByTag(apiKey, tag);
+        String gifUrl = getGifUrlByJson(json);
+        return gifUrl.isEmpty()
+                ? new ResponseEntity<>("error", HttpStatus.NOT_FOUND)
+                : new ResponseEntity<>(gifUrl, HttpStatus.OK);
+    }
+
+    private String getGifUrlByJson(ResponseEntity<Map> json) {
+        Map body = json.getBody();
+        Map data = (Map) body.get("data");
+        return (String) data.get("embed_url");
     }
 }
