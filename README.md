@@ -24,7 +24,7 @@ Swagger:
 --- 
 Swagger-UI
 ```  
-localhost:8881/swagger-ui
+http://localhost:8881/swagger-ui.html
 ```
 Запуск .jar:
 ---

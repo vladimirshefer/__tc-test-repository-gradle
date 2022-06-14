@@ -33,11 +33,11 @@ public class MainControllerTest {
     @Test
     public void whenReturnGif() throws Exception {
         ResponseEntity<String> responseEntity = new ResponseEntity<>("", HttpStatus.OK);
-        Mockito.when(mainService.getGifByCharCode(RICH_TAG))
+        Mockito.when(mainService.getGifByCharCode("TEST"))
                 .thenReturn(responseEntity);
-        mockMvc.perform(get("/gif/TEST")
+        mockMvc.perform(get("/gifs?symbol=TEST")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().is3xxRedirection());
     }
 }
